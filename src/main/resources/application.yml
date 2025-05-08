@@ -1,0 +1,7 @@
+spring:
+    application:
+        name: default-myPsy-BE
+    profiles:
+        active: local
+
+
