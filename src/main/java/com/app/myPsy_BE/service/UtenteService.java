@@ -11,13 +11,29 @@ import java.util.List;
 public class UtenteService {
 
     @Autowired
-    private UtenteRepository repository;
+    private UtenteRepository userRepository;
 
-    public List<Utente> findAllUser() {
-        return repository.findAll();
+    public List<Utente> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public Utente getUserById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    public Utente getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    public boolean existsById(Long id) {
+        return userRepository.existsById(id);
+    }
+
+    public void deleteById(Long id) {
+        userRepository.deleteById(id);
     }
 
     public Utente save(Utente utente) {
-        return repository.save(utente);
+        return userRepository.save(utente);
     }
 }
